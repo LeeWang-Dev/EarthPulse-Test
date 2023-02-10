@@ -11,13 +11,12 @@
     const responseJson = await response.json();
     if (responseJson.status === "success") {
       geoJsonData = responseJson.result;
-      console.log(geoJsonData);
     }
   });
 
   const mapOptions = {
-    center: [41.40959, 2.13009],
-    zoom: 16,
+    center: [41.409, 2.13],
+    zoom: 17,
   };
   const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
   const tileLayerOptions = {
