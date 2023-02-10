@@ -1,0 +1,6 @@
+-Please download git source.
+-Please open console, move <EarthPulse-Test/backend> folder
+-npm install and run <node server.js>, and then you can see backend is running on localhost:8000
+-move frontend folder
+-npm install and <npm run dev>, and then frontend app is running on localhost:8080
+-Please type localhost:8080 on browser
