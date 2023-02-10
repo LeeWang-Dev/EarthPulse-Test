@@ -44,9 +44,9 @@
     {:else if basemap === "satellite"}
       <TileLayer
         url={"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"}
-		options={{
-			attribution: "ArcGIS World Imagery",
-		  }}
+        options={{
+          attribution: "ArcGIS World Imagery",
+        }}
       />
     {/if}
     <GeoJSON data={geoJsonData} options={geoJsonOptions} />
@@ -85,5 +85,12 @@
   .basemap-container button.toggle {
     color: white;
     background-color: rgb(100, 122, 255);
+  }
+  @media screen and (max-width: 960px) {
+    .map-container {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>
