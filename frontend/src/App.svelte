@@ -16,7 +16,7 @@
 
   const mapOptions = {
     center: [41.409, 2.13],
-    zoom: 22,
+    zoom: 17,
   };
   const geoJsonOptions = {
     style: function (geoJsonFeature) {
