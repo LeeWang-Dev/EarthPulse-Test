@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import { LeafletMap, GeoJSON, TileLayer } from "svelte-leafletjs";
+  import 'leaflet/dist/leaflet.css';
 
   const API_URL = "http://localhost:8000";
   let basemap = "street";
