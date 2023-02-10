@@ -16,14 +16,7 @@
 
   const mapOptions = {
     center: [41.409, 2.13],
-    zoom: 17,
-  };
-  const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-  const tileLayerOptions = {
-    minZoom: 0,
-    maxZoom: 20,
-    maxNativeZoom: 19,
-    attribution: "© OpenStreetMap contributors",
+    zoom: 22,
   };
   const geoJsonOptions = {
     style: function (geoJsonFeature) {
@@ -38,7 +31,24 @@
 
 <div class="map-container">
   <LeafletMap options={mapOptions}>
-    <TileLayer url={tileUrl} options={tileLayerOptions} />
+    {#if basemap === "street"}
+      <TileLayer
+        url={"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"}
+        options={{
+          minZoom: 0,
+          maxZoom: 20,
+          maxNativeZoom: 19,
+          attribution: "© OpenStreetMap contributors",
+        }}
+      />
+    {:else if basemap === "satellite"}
+      <TileLayer
+        url={"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"}
+		options={{
+			attribution: "ArcGIS World Imagery",
+		  }}
+      />
+    {/if}
     <GeoJSON data={geoJsonData} options={geoJsonOptions} />
   </LeafletMap>
   <div class="basemap-container">
@@ -69,6 +79,7 @@
   .basemap-container button {
     border: 0;
     border-radius: 8x;
+    background-color: white;
     cursor: pointer;
   }
   .basemap-container button.toggle {
